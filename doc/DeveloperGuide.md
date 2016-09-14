@@ -46,8 +46,9 @@ Priority | As a ... | I want to ... | So that I can...
 `* * *` | user | delete a person | remove entries that I no longer need
 `* * *` | user | find a person by name | locate details of persons without having to go through the entire list
 `* *` | user | hide [private contact details](#private-contact-detail) by default | minimize chance of someone else seeing them by accident
+`**` | user | modify contact details | input his/her new contact details
 `*` | user with many persons in the address book | sort persons by name | locate a person easily
-
+`*` | user with many persons in the address book | sort by most frequently accessed | locate a person I contact often
 
 ## Appendix B : Use Cases
 
@@ -74,12 +75,48 @@ Use case ends.
 > 3a1. AddressBook shows an error message <br>
   Use case resumes at step 2
 
+#### Use case: Rename existing tag
+
+**MSS**
+
+1. User requests to list persons.
+2. AddressBook shows a list of persons.
+3. User requests to modify tags of a specific person in the list.
+4. User enters the requested tags.
+5. AddressBook confirms changes with user.
+6. User confirms changes.
+5. AddressBook replaces existing tags with new input.
+Use case ends.
+
+**Extensions**
+
+2a. The list is empty
+
+> Use case ends
+
+3a. The given index is invalid
+
+> 3a1. AddressBook shows an error message <br>
+  Use case resumes at step 2
+
+4a. AddressBook detects an error in the entered data
+>	4a1. AddressBook requests for valid type of data for given address detail
+	4a2. User enters new data.
+Steps 4a1-4a2 are repeated until the data entered are correct.
+Use case resumes resumes from step 5.
+
+5a. User rejects changes
+
+> Use case restarts from step 3
+
 ## Appendix C : Non Functional Requirements
 
 1. Should work on any [mainstream OS](#mainstream-os) as long as it has Java 8 or higher installed.
 2. Should be able to hold up to 1000 persons.
 3. Should come with automated unit tests and open source code.
 4. Should favor DOS style commands over Unix-style commands.
+5. Should follow UML modeling notation.
+6. Should comply with Java Coding Standard.
 
 ## Appendix D : Glossary
 
